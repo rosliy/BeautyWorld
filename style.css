@@ -122,7 +122,7 @@ section {
 	align-items: flex-end;
 	gap: 8px 0;
 }
-.navigation-phone {
+.header-phone {
 	font-size: 18px;
 	font-weight: 500;
 }
@@ -202,7 +202,7 @@ section {
 	z-index: 1;
 }
 
-.header-image:before {
+.header-image::before {
 	display: block;
 	content: '';
 	background: #456bd9;
@@ -220,7 +220,7 @@ section {
 	transition: 1s;
 }
 
-.header-image:hover:before {
+.header-image:hover::before {
 	transform: scale(1.2);
 	right: 0;
 }
