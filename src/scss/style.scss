@@ -1,53 +1,25 @@
-/* COMMON */
+@import '_nullstyles.scss';
+@import '_variables.scss';
+@import '_libs.scss';
+@import '_mixins.scss';
 
-*,
-*:before,
-*:after {
-	box-sizing: border-box;
-}
+/* COMMON */
 
 html,
 body {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 14px;
-	color: #333;
+	font-size: $fz;
+	color: $fc;
 	font-weight: 400;
 	height: 100%;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin: 0;
-	padding: 0;
-}
+
 a {
-	text-decoration: none;
-	color: #333;
+	color: $fc;
 	font-weight: 700;
 }
 a:hover {
-	color: #00bf78;
-}
-
-ul,
-li {
-	list-style: none;
-}
-
-button {
-	padding: 0;
-	border: none;
-	font: inherit;
-	color: inherit;
-	background-color: transparent;
-	border: none;
-	/* отображаем курсор в виде руки при наведении; некоторые
-    считают, что необходимо оставлять стрелочный вид для кнопок */
-	cursor: pointer;
+	color: $second-color;
 }
 
 .wrapper {
@@ -63,19 +35,27 @@ button {
 }
 
 .container {
-	max-width: 1110px;
+	width: 100%;
+	max-width: 1140px;
+
 	margin: 0 auto;
+	padding: 0 15px;
 }
 
 .btn {
 	width: fit-content;
-	color: #fff;
-	font-size: 12px;
+	color: $btn-fcolor;
 	font-weight: 500;
 	outline: none;
-	padding: 17px 30px;
-	border-radius: 24px;
-	background: #fb9475;
+	background: $main-color;
+	transition: 0.2s;
+}
+.btn:hover {
+	background-color: $hover-color;
+}
+
+.btn:active {
+	background-color: $active-color;
 }
 
 .title {
@@ -83,6 +63,10 @@ button {
 
 	font-size: 48px;
 	font-weight: 700;
+
+	@include tablet {
+		text-align: center;
+	}
 }
 
 section {
@@ -91,7 +75,7 @@ section {
 /* HEADER */
 
 .header {
-	background: url('./images/bg.jpg');
+	background: url('../images/header/bg.jpg');
 }
 
 .header-top {
@@ -112,7 +96,6 @@ section {
 }
 
 .navigation-link {
-	font-size: 14px;
 	font-weight: 500;
 }
 
@@ -162,21 +145,10 @@ section {
 
 	font-size: 20px;
 }
-.btn {
-	font-size: 14px;
-	transition: 0.2s;
-}
-
-.btn:hover {
-	background-color: #fa6e43;
-}
-
-.btn:focus {
-	background-color: #fb9475;
-}
-
-.btn:active {
-	background-color: #f84712;
+.header__btn {
+	padding: 17px 30px;
+	border-radius: 24px;
+	font-size: $fz;
 }
 
 .header-image {
@@ -205,9 +177,8 @@ section {
 .header-image::before {
 	display: block;
 	content: '';
-	background: #456bd9;
 	border-radius: 472px;
-	background: #fb9475;
+	background: $main-color;
 
 	width: 472px;
 	height: 472px;
@@ -236,25 +207,18 @@ section {
 	display: block;
 	height: 32px;
 	width: 32px;
-	outline: 0.5px solid transparent;
-	outline-offset: 1px;
-	border-radius: 50%;
 	color: #989898;
-	transition-property: color, outline-color;
-	transition-duration: 0.3s, 0.2s;
+	transition-property: color;
+	transition-duration: 0.3s;
 	transition-timing-function: ease-in-out;
 }
 
 .social-item:hover {
-	color: #fa6e43;
-}
-
-.social-item:focus {
-	outline-color: #fa6e43;
+	color: $hover-color;
 }
 
 .social-item:active {
-	color: #f84712;
+	color: $active-color;
 }
 
 /* ABOUT */
@@ -305,10 +269,10 @@ section {
 	color: transparent;
 }
 .video-play:hover {
-	color: #fa6e43;
+	color: $hover-color;
 }
 .video-play:active {
-	color: #f84712;
+	color: $active-color;
 }
 .video-text {
 	font-size: 16px;
@@ -328,8 +292,9 @@ section {
 	text-align: center;
 }
 .advantages-item:hover {
-	box-shadow: 1px 1px #00bf78, 2px 2px #00bf78, 3px 3px #00bf78, 4px 4px #00bf78,
-		5px 5px #00bf78, 6px 6px #00bf78, 7px 7px #00bf78;
+	box-shadow: 1px 1px $second-color, 2px 2px $second-color,
+		3px 3px $second-color, 4px 4px $second-color, 5px 5px $second-color,
+		6px 6px $second-color, 7px 7px $second-color;
 	-webkit-transform: translateX(-7px);
 	transform: translateX(-7px);
 }
@@ -346,6 +311,63 @@ section {
 .advantages-desc {
 	font-size: 14px;
 	line-height: 1.5;
+}
+
+/* SERVICES */
+.services {
+	&__cards {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: 30px 30px;
+
+		@include any-screen(1150px) {
+			justify-content: space-around;
+		}
+	}
+
+	&__btn {
+		padding: 10px 20px;
+		border-radius: 17px;
+		font-size: 12px;
+		line-height: 14px;
+	}
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	max-width: 350px;
+
+	@include tablet {
+		text-align: center;
+		align-items: center;
+	}
+
+	&__img {
+		margin-bottom: 20px;
+		border-radius: 8px;
+
+		width: 350px;
+		height: 180px;
+		object-fit: cover;
+	}
+
+	&__title {
+		margin-bottom: 8px;
+
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	&__desc {
+		margin-bottom: 16px;
+
+		font-size: 12px;
+		font-weight: 400;
+		line-height: 20px;
+	}
 }
 
 /* FOOTER */

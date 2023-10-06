@@ -1,0 +1,42 @@
+@import './_variables.scss';
+
+/* Custom, Iphone Retina */
+@mixin sm-mobile() {
+	@media only screen and (max-width: $sm-mobile-screen) {
+		@content;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@mixin mobile() {
+	@media only screen and (max-width: $mobile-screen) {
+		@content;
+	}
+}
+
+/* Small Devices, Tablets */
+@mixin tablet() {
+	@media only screen and (max-width: $tablet-screen) {
+		@content;
+	}
+}
+
+/* Medium Devices, Desktops */
+@mixin medium-devices() {
+	@media only screen and (max-width: $medium-screen) {
+		@content;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@mixin large-devices() {
+	@media only screen and (max-width: $large-screen) {
+		@content;
+	}
+}
+
+@mixin any-screen($any-screen) {
+	@media only screen and (max-width: $any-screen) {
+		@content;
+	}
+}
