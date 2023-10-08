@@ -15,8 +15,9 @@ $shb-hover-color: #00bf78;
 
 /* FONT */
 $fc: #333;
-$fz: 14px;
 
+$font-size: calc((100vw - 480px) / (1280 - 320) * (14 - 10) + 10px);
+$fz: 14px;
 /* MEDIA */
 
 $large-screen: 1280px;
