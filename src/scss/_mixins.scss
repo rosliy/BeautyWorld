@@ -40,3 +40,11 @@
 		@content;
 	}
 }
+
+/* Не работает, миксин для резиновых отступов */
+@mixin margin($max-margin, $min-margin) {
+	margin-bottom: calc(
+		$min-margin + ($max-margin - $min-margin) *
+			((100vw - $sm-mobile-screen) / ($container-max-width - $sm-mobile-screen))
+	);
+}
