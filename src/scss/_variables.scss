@@ -1,0 +1,27 @@
+/* COMMON */
+$main-color: #fb9475;
+$hover-color: #fa6e43;
+$active-color: #f84712;
+
+$second-color: #00bf78;
+/* BUTTON */
+$btn-fcolor: #fff;
+
+/* a */
+$a-hover: #00bf78;
+
+/* SHADOW-BOX */
+$shb-hover-color: #00bf78;
+
+/* FONT */
+$fc: #333;
+
+$font-size: calc((100vw - 480px) / (1280 - 320) * (14 - 10) + 10px);
+$fz: 14px;
+/* MEDIA */
+
+$large-screen: 1280px;
+$medium-screen: 992px;
+$tablet-screen: 768px;
+$mobile-screen: 480px;
+$sm-mobile-screen: 320px;
