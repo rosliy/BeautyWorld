@@ -1,0 +1,27 @@
+/* FOOTER */
+
+.footer {
+	padding: 20px 0;
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__company {
+		margin-bottom: 8px;
+
+		font-size: 0.86em;
+	}
+
+	&__policy {
+		font-size: 0.86em;
+		font-weight: 400;
+		color: #278aff;
+
+		&:hover {
+			text-decoration-line: underline;
+		}
+	}
+}

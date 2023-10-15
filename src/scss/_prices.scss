@@ -1,0 +1,128 @@
+/* PRICES */
+
+.prices {
+	&__categories {
+		margin-bottom: 51px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 10px 28px;
+
+		&_active {
+			padding-bottom: 4px;
+			color: $second-color;
+			border-bottom: 2px solid $second-color;
+		}
+
+		@include any-screen(840px) {
+			flex-wrap: wrap;
+		}
+
+		@include mobile {
+			justify-content: space-around;
+		}
+	}
+
+	&__category {
+		font-weight: 500;
+		cursor: pointer;
+
+		&:hover {
+			color: $second-color;
+		}
+	}
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: center;
+
+		height: 300px;
+
+		@include medium-devices {
+			height: auto;
+		}
+	}
+
+	&__item {
+		position: relative;
+
+		margin-bottom: 32px;
+		width: 445px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		z-index: 2;
+
+		transition: all 0.3s ease;
+		position: relative;
+
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 2px;
+			width: 0;
+			background: $second-color;
+			box-shadow: -1px -1px 5px 0px #fff, 7px 7px 20px 0px #0003,
+				4px 4px 5px 0px #0002;
+			transition: 0.4s ease all;
+		}
+		&::after {
+			right: inherit;
+			top: inherit;
+			left: 0;
+			bottom: 0;
+		}
+		&:hover::before,
+		&:hover::after {
+			width: 100%;
+			transition: 0.8s ease all;
+		}
+		@include mobile {
+			width: 290px;
+			margin-bottom: 20px;
+		}
+
+		/* &:hover {
+			border: 1px solid $second-color;
+		} */
+	}
+
+	&__desc {
+		display: flex;
+		flex-direction: column;
+		gap: 8px 0;
+		z-index: 2;
+	}
+
+	&__title {
+		font-size: 18px;
+		font-weight: 500;
+
+		@include mobile {
+			font-size: 1em;
+			width: 180px;
+		}
+	}
+
+	&__subtitle {
+		@include mobile {
+			font-size: 0.72em;
+		}
+	}
+
+	&__cost {
+		color: $second-color;
+		font-size: 1.43em;
+		font-weight: 600;
+		z-index: 2;
+
+		@include mobile {
+			font-size: 1.43em;
+		}
+	}
+}

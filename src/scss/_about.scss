@@ -1,0 +1,143 @@
+/* ABOUT */
+.about {
+	&__body {
+		display: flex;
+		justify-content: space-between;
+
+		margin-bottom: 100px;
+
+		@include medium-devices {
+			margin-bottom: 50px;
+			align-items: center;
+			flex-direction: column;
+		}
+	}
+
+	&__info {
+		width: 48%;
+
+		@include medium-devices {
+			width: 100%;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+	}
+
+	&__video {
+		width: 40%;
+
+		@include medium-devices {
+			width: 80%;
+		}
+	}
+
+	&__definition {
+		padding-bottom: 16px;
+
+		font-size: 1.43em;
+		line-height: 1.6;
+	}
+
+	&__description {
+		font-size: 1.14em;
+		line-height: 1.625;
+	}
+}
+
+.video {
+	position: relative;
+
+	width: 40%;
+
+	@include medium-devices {
+		width: 80%;
+	}
+
+	&__body {
+		position: relative;
+	}
+
+	&__bg {
+		border-radius: 8px;
+		display: block;
+		max-width: 100%;
+		height: auto;
+	}
+
+	&__info {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__play {
+		margin-bottom: 10px;
+		cursor: pointer;
+		color: transparent;
+
+		&:hover {
+			color: $hover-color;
+		}
+		&:active {
+			color: $active-color;
+		}
+	}
+	&__text {
+		font-size: 16px;
+		font-weight: 500;
+
+		color: #fff;
+	}
+}
+
+.advantages {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		width: 33.33333%;
+		padding: 25px 30px;
+		margin: 0 0;
+
+		text-align: center;
+
+		@include tablet {
+			margin: 0 auto;
+			width: 70%;
+			border-bottom: 1px solid $second-color;
+		}
+
+		&:hover {
+			box-shadow: 1px 1px $second-color, 2px 2px $second-color,
+				3px 3px $second-color, 4px 4px $second-color, 5px 5px $second-color,
+				6px 6px $second-color, 7px 7px $second-color;
+			-webkit-transform: translateX(-7px);
+			transform: translateX(-7px);
+		}
+	}
+
+	&__icon {
+		margin-bottom: 20px;
+	}
+
+	&__title {
+		margin-bottom: 20px;
+
+		font-size: 1.29em;
+		font-weight: 600;
+	}
+
+	&__desc {
+		font-size: 1em;
+		line-height: 1.5;
+	}
+}
