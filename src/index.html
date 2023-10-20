@@ -7,7 +7,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-
+    <!-- <script defer src="index.js"></script> -->
 
     <link rel="stylesheet" href="./css/style.css">
 
@@ -17,25 +17,27 @@
 <body>
     <div class="wrapper">
         <!-- HEADER -->
-        <header id="open" class="header">
+        <header class="header">
             <div class="container">
-                <div id="close" class="header__container">
+                <div class="header__container">
 
                     <a class="header__logo" href="#">Мир красоты</a>
 
                     <div class="header__menu menu">
                         <nav id="menu" class="menu__body">
                             <ul class="menu__list menu__list_header">
-                                <li class="menu__item menu__item_header"><a href="#" class="menu__link_header">Услуги и
-                                        цены</a></li>
-                                <li class="menu__item menu__item_header"><a href="#"
-                                        class="menu__link_header">Мастера</a></li>
-                                <li class="menu__item menu__item_header"><a href="#" class="menu__link_header">Наши
+                                <li class="menu__item menu__item_header"><a data-goto=".prices" href="#"
+                                        class="menu__link menu__link_header">Услуги и цены</a></li>
+                                <li class="menu__item menu__item_header"><a data-goto=".masters" href="#"
+                                        class="menu__link menu__link_header">Мастера</a></li>
+                                <li class="menu__item menu__item_header"><a data-goto=".works" href="#"
+                                        class="menu__link menu__link_header">Наши
                                         работы</a></li>
-                                <li class="menu__item menu__item_header"><a href="#" class="menu__link_header">О нас</a>
-                                </li>
-                                <li class="menu__item menu__item_header"><a href="#"
-                                        class="menu__link_header">Контакты</a></li>
+                                <li class="menu__item menu__item_header"><a data-goto=".about" href="#"
+                                        class="menu__link menu__link_header">О нас</a></li>
+                                <li class="menu__item menu__item_header"><a data-goto=".contacts" href="#"
+                                        class="menu__link menu__link_header">Контакты</a></li>
+
                                 <li class="header__contact">
                                     <a class="header__phone" href="tel:84996861762">8 (499) 686-17-62</a>
                                     <span>с 10.00 до 19.00 без выходных</span>
@@ -49,9 +51,8 @@
                         <span>с 10.00 до 19.00 без выходных</span>
                     </div>
 
-                    <a href="#open" class="icon-menu"><span></span></a>
+                    <a href="#" class="menu__icon"><span></span></a>
 
-                    <a href="#close" class="close-icon-menu"></a>
                 </div>
 
                 <div class="header__content">
@@ -235,72 +236,367 @@
             <section class="prices">
                 <div class="container">
                     <h2 class="title">Услуги и цены</h2>
-                    <ul class="prices__categories">
-                        <li class="prices__category prices__categories_active">Стрижка и укладка</li>
-                        <li class="prices__category">Косметология</li>
-                        <li class="prices__category">Маникюр и педикюр</li>
-                        <li class="prices__category">Макияж</li>
-                        <li class="prices__category">Брови и ресницы</li>
-                        <li class="prices__category">Массаж</li>
-                    </ul>
-                    <ul class="prices__items">
-                        <li class="prices__item prices__item_example">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Женская стрижка</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Мужская стрижка</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Детский Стиль</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Креативный Стиль</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Стрижка бороды и усов</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Экспресс укладка</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Укладка дневная</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                        <li class="prices__item">
-                            <div class="prices__desc">
-                                <h3 class="prices__title">Прическа вечерняя (свадебная)</h3>
-                                <p class="prices__subtitle">Короткие волосы</p>
-                            </div>
-                            <div class="prices__cost">1200 ₽</div>
-                        </li>
-                    </ul>
+                    <div class="service__tabs">
+                        <ul class="prices__categories">
+                            <li class="prices__category _active">Стрижка и укладка</li>
+                            <li class="prices__category">Косметология</li>
+                            <li class="prices__category">Маникюр и педикюр</li>
+                            <li class="prices__category">Макияж</li>
+                            <li class="prices__category">Брови и ресницы</li>
+                            <li class="prices__category">Массаж</li>
+                        </ul>
+                        <div class="tabs__content">
+                            <ul class="prices__items">
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Женская стрижка</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Мужская стрижка</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Детский Стиль</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Креативный Стиль</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Стрижка бороды и усов</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Экспресс укладка</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Укладка дневная</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Прическа вечерняя (свадебная)</h3>
+                                        <p class="prices__subtitle">Короткие волосы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                            </ul>
+                            <ul class="prices__items">
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Пилинг-массаж</h3>
+                                        <p class="prices__subtitle">волосистой части головы</p>
+                                    </div>
+                                    <div class="prices__cost">8700 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Аппаратное омоложение</h3>
+                                        <p class="prices__subtitle">глубокое увлажнение</p>
+                                    </div>
+                                    <div class="prices__cost">6700 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Инъекционное омоложение</h3>
+                                        <p class="prices__subtitle">безоперационные процедуры</p>
+                                    </div>
+                                    <div class="prices__cost">3400 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерная косметология</h3>
+                                        <p class="prices__subtitle">Удаление эстетических эффектов</p>
+                                    </div>
+                                    <div class="prices__cost">63700 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Уход</h3>
+                                        <p class="prices__subtitle">Процедуры для поддержания здоровья</p>
+                                    </div>
+                                    <div class="prices__cost">7630 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Фототерапия кожи</h3>
+                                        <p class="prices__subtitle">на аппарате Photocare</p>
+                                    </div>
+                                    <div class="prices__cost">3460 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Массаж лица</h3>
+                                        <p class="prices__subtitle">Вакуумный массаж кожи</p>
+                                    </div>
+                                    <div class="prices__cost">2580 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерофорез</h3>
+                                        <p class="prices__subtitle">Процедура на аппарате «VITALAZER»</p>
+                                    </div>
+                                    <div class="prices__cost">3450 ₽</div>
+                                </li>
+                            </ul>
+                            <ul class="prices__items">
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Аппаратное омоложение</h3>
+                                        <p class="prices__subtitle">глубокое увлажнение</p>
+                                    </div>
+                                    <div class="prices__cost">4560 ₽</div>
+                                </li>
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Пилинг-массаж</h3>
+                                        <p class="prices__subtitle">волосистой части головы</p>
+                                    </div>
+                                    <div class="prices__cost">5990 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Инъекционное омоложение</h3>
+                                        <p class="prices__subtitle">безоперационные процедуры</p>
+                                    </div>
+                                    <div class="prices__cost">5430 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерная косметология</h3>
+                                        <p class="prices__subtitle">Удаление эстетических эффектов</p>
+                                    </div>
+                                    <div class="prices__cost">2340 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Уход</h3>
+                                        <p class="prices__subtitle">Процедуры для поддержания здоровья</p>
+                                    </div>
+                                    <div class="prices__cost">3450 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Фототерапия кожи</h3>
+                                        <p class="prices__subtitle">на аппарате Photocare</p>
+                                    </div>
+                                    <div class="prices__cost">3450 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Массаж лица</h3>
+                                        <p class="prices__subtitle">Вакуумный массаж кожи</p>
+                                    </div>
+                                    <div class="prices__cost">5670 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерофорез</h3>
+                                        <p class="prices__subtitle">Процедура на аппарате «VITALAZER»</p>
+                                    </div>
+                                    <div class="prices__cost">6700 ₽</div>
+                                </li>
+                            </ul>
+                            <ul class="prices__items">
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерная косметология</h3>
+                                        <p class="prices__subtitle">Удаление эстетических эффектов</p>
+                                    </div>
+                                    <div class="prices__cost">7600 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Уход</h3>
+                                        <p class="prices__subtitle">Процедуры для поддержания здоровья</p>
+                                    </div>
+                                    <div class="prices__cost">5200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Фототерапия кожи</h3>
+                                        <p class="prices__subtitle">на аппарате Photocare</p>
+                                    </div>
+                                    <div class="prices__cost">3200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Массаж лица</h3>
+                                        <p class="prices__subtitle">Вакуумный массаж кожи</p>
+                                    </div>
+                                    <div class="prices__cost">4300 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерофорез</h3>
+                                        <p class="prices__subtitle">Процедура на аппарате «VITALAZER»</p>
+                                    </div>
+                                    <div class="prices__cost">2300 ₽</div>
+                                </li>
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Пилинг-массаж</h3>
+                                        <p class="prices__subtitle">волосистой части головы</p>
+                                    </div>
+                                    <div class="prices__cost">4300 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Аппаратное омоложение</h3>
+                                        <p class="prices__subtitle">глубокое увлажнение</p>
+                                    </div>
+                                    <div class="prices__cost">5200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Инъекционное омоложение</h3>
+                                        <p class="prices__subtitle">безоперационные процедуры</p>
+                                    </div>
+                                    <div class="prices__cost">7200 ₽</div>
+                                </li>
+                            </ul>
+                            <ul class="prices__items">
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Пилинг-массаж</h3>
+                                        <p class="prices__subtitle">волосистой части головы</p>
+                                    </div>
+                                    <div class="prices__cost">8200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Аппаратное омоложение</h3>
+                                        <p class="prices__subtitle">глубокое увлажнение</p>
+                                    </div>
+                                    <div class="prices__cost">2200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Инъекционное омоложение</h3>
+                                        <p class="prices__subtitle">безоперационные процедуры</p>
+                                    </div>
+                                    <div class="prices__cost">4200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерная косметология</h3>
+                                        <p class="prices__subtitle">Удаление эстетических эффектов</p>
+                                    </div>
+                                    <div class="prices__cost">2200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Уход</h3>
+                                        <p class="prices__subtitle">Процедуры для поддержания здоровья</p>
+                                    </div>
+                                    <div class="prices__cost">2200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Фототерапия кожи</h3>
+                                        <p class="prices__subtitle">на аппарате Photocare</p>
+                                    </div>
+                                    <div class="prices__cost">4200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Массаж лица</h3>
+                                        <p class="prices__subtitle">Вакуумный массаж кожи</p>
+                                    </div>
+                                    <div class="prices__cost">3200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерофорез</h3>
+                                        <p class="prices__subtitle">Процедура на аппарате «VITALAZER»</p>
+                                    </div>
+                                    <div class="prices__cost">2200 ₽</div>
+                                </li>
+                            </ul>
+                            <ul class="prices__items">
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Инъекционное омоложение</h3>
+                                        <p class="prices__subtitle">безоперационные процедуры</p>
+                                    </div>
+                                    <div class="prices__cost">1900 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерная косметология</h3>
+                                        <p class="prices__subtitle">Удаление эстетических эффектов</p>
+                                    </div>
+                                    <div class="prices__cost">1800 ₽</div>
+                                </li>
+                                <li class="prices__item prices__item_example">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Пилинг-массаж</h3>
+                                        <p class="prices__subtitle">волосистой части головы</p>
+                                    </div>
+                                    <div class="prices__cost">1200 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Аппаратное омоложение</h3>
+                                        <p class="prices__subtitle">глубокое увлажнение</p>
+                                    </div>
+                                    <div class="prices__cost">1600 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Уход</h3>
+                                        <p class="prices__subtitle">Процедуры для поддержания здоровья</p>
+                                    </div>
+                                    <div class="prices__cost">1500 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Фототерапия кожи</h3>
+                                        <p class="prices__subtitle">на аппарате Photocare</p>
+                                    </div>
+                                    <div class="prices__cost">1400 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Массаж лица</h3>
+                                        <p class="prices__subtitle">Вакуумный массаж кожи</p>
+                                    </div>
+                                    <div class="prices__cost">1300 ₽</div>
+                                </li>
+                                <li class="prices__item">
+                                    <div class="prices__desc">
+                                        <h3 class="prices__title">Лазерофорез</h3>
+                                        <p class="prices__subtitle">Процедура на аппарате «VITALAZER»</p>
+                                    </div>
+                                    <div class="prices__cost">1100 ₽</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
@@ -507,13 +803,13 @@
                     </div>
                     <nav class="footer__menu menu">
                         <ul class="menu__list menu__list_footer">
-                            <li class="menu__item menu__item_footer"><a href="#"
+                            <li class="menu__item menu__item_footer"><a data-goto=".prices" href="#"
                                     class="menu__link menu__link_footer">Услуги и цены</a></li>
-                            <li class="menu__item menu__item_footer"><a href="#"
+                            <li class="menu__item menu__item_footer"><a data-goto=".masters" href="#"
                                     class="menu__link menu__link_footer">Мастера</a></li>
-                            <li class="menu__item menu__item_footer"><a href="#"
+                            <li class="menu__item menu__item_footer"><a data-goto=".works" href="#"
                                     class="menu__link menu__link_footer">Наши работы</a></li>
-                            <li class="menu__item menu__item_footer"><a href="#"
+                            <li class="menu__item menu__item_footer"><a data-goto=".contacts" href="#"
                                     class="menu__link menu__link_footer">Контакты</a></li>
                         </ul>
                     </nav>
@@ -521,6 +817,7 @@
             </div>
         </footer>
     </div>
+    <script src="./js/main.min.js"></script>
 </body>
 
 </html>
