@@ -1,4 +1,5 @@
 const isProduction = process.env.NODE_ENV == 'production';
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -12,10 +13,11 @@ module.exports = {
             }
         ]
     },
-    externals: {
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery'
+    optimization: {
+        minimize: isProduction,
+        minimizer: [new TerserPlugin({
+            extractComments: false,
+        })],
     },
 };
 

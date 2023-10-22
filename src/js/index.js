@@ -1,9 +1,73 @@
+import $ from 'jquery'
+import 'slick-carousel/slick/slick'
 import { TabsManager } from './tabs'
 
 
 function init() { 
     new TabsManager(document.querySelector('.service__tabs')); 
-}
+
+    $('.works__items').slick({
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        prevArrow: '.works__arrow_left',
+        nextArrow: '.works__arrow_right',
+        centerPadding: '100px',
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToScroll: 1,
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 769,
+                settings: {
+                    slidesToScroll: 1,
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '60px',
+                    infinite: true,
+
+                }
+            },
+            {
+                breakpoint: 481,
+                settings: {
+                    arrow: false,
+                    slidesToShow: 1,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    infinite: true,
+
+                }
+            }
+        ]
+    });
+
+
+    const form = document.getElementById('form');
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const { name, phone, } = event.target;
+
+        const contactInfo = {
+            name: name.value, 
+            phone: phone.value,
+        }
+        console.log(contactInfo);
+        
+    });
+
+    $(document).ready(function() {
+        $(".gallery a").fancybox(); // выбор всех ссылок с классом gallery
+    });
+
+};
 
 init();
 //  Меню Бургер
