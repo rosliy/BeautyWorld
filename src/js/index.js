@@ -1,6 +1,7 @@
 import $ from 'jquery'
 import 'slick-carousel/slick/slick'
 import { TabsManager } from './tabs'
+import { Fancybox } from '/node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd'
 
 
 function init() { 
@@ -63,8 +64,8 @@ function init() {
         
     });
 
-    $(document).ready(function() {
-        $(".gallery a").fancybox(); // выбор всех ссылок с классом gallery
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        hideScrollbar: false,
     });
 
 };

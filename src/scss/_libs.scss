@@ -1,5 +1,4 @@
 @use 'normalize.css/normalize.css';
 @use 'slick-carousel/slick/slick-theme.css';
 @use 'slick-carousel/slick/slick.css';
-import { Fancybox } from "@fancyapps/ui";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
+@use '/node_modules/@fancyapps/ui/dist/fancybox/fancybox.css';
