@@ -1,8 +1,7 @@
+import { Fancybox } from '@fancyapps/ui'
 import $ from 'jquery'
 import 'slick-carousel/slick/slick'
 import { TabsManager } from './tabs'
-import { Fancybox } from '/node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd'
-
 
 function init() { 
     new TabsManager(document.querySelector('.service__tabs')); 
@@ -64,9 +63,7 @@ function init() {
         
     });
 
-    Fancybox.bind('[data-fancybox="gallery"]', {
-        hideScrollbar: false,
-    });
+    Fancybox.bind("[data-fancybox]");
 
 };
 
