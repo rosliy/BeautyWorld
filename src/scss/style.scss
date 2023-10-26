@@ -111,3 +111,14 @@ section {
 .fancybox-slide--iframe .fancybox-content {
 	max-width: 600px;
 }
+
+.form__name.error,
+.form__phone.error {
+	border: 2px red solid;
+	margin-bottom: 5px;
+}
+
+.error {
+	color: red;
+	padding-bottom: 10px;
+}

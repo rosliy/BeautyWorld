@@ -1,10 +1,24 @@
 import { Fancybox } from '@fancyapps/ui'
 import $ from 'jquery'
+import 'jquery-validation/dist/jquery.validate'
 import 'slick-carousel/slick/slick'
 import { TabsManager } from './tabs'
+import '/node_modules/jquery.maskedinput/src/jquery.maskedinput.js'
+
+$.validator.addMethod("phoneNumber", function(value, element) {
+    if (element.value.replace(/[^\d]/g, '').length == 11) 
+        return true;
+        else return false;
+  }, 'Пожалуйста введите номер телефона корректно.');
 
 function init() { 
+
+// TABS
+
     new TabsManager(document.querySelector('.service__tabs')); 
+    
+    
+// SLIDER
 
     $('.works__items').slick({
         infinite: false,
@@ -47,28 +61,68 @@ function init() {
         ]
     });
 
+// FORM
 
+    
     const form = document.getElementById('form');
-
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const { name, phone, } = event.target;
-
-        const contactInfo = {
-            name: name.value, 
-            phone: phone.value,
-        }
-        console.log(contactInfo);
+    
+    $(function(){
         
-    });
+        $(".form__phone").mask("+7 (999) 999-99-99", {autoclear: false});
+        $(form).submit(function(e) {
+            
+            e.preventDefault();
+            
+        }).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2,
+                },
+                number: {
+                        required: true,	
+                        phoneNumber: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Поле 'Имя' обязательно к заполнению", 
+                    minlength: "Введите не менее 2-х символов в поле 'Имя'"
+                },
+                number: {
+                    required: "Поле 'Телефон' обязательно к заполнению",
+
+                }
+            },
+            submitHandler: function (form) {
+                const formData = {
+                    name: form.name.value,
+                    number: form.number.value
+                }
+                console.log(formData)
+            }
+            })
+        });
+
+// GALLERY
 
     Fancybox.bind("[data-fancybox]");
+
+
+// VALIDATION
+    
+
 
 };
 
 init();
-//  Меню Бургер
+
+
+
+
+
+
+// BURGER
 
 const iconMenu = document.querySelector('.menu__icon');
 const menuBody = document.querySelector('.menu__body');
@@ -80,9 +134,10 @@ if (iconMenu) {
     });
 }
 
-// Прокрутка при навигации
+// SMOOTH SCROLL
 
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+
 if (menuLinks.length > 0) {
     menuLinks.forEach(menuLink => {
         menuLink.addEventListener("click", onMenuLinkClick);
