@@ -5,6 +5,8 @@ import 'slick-carousel/slick/slick'
 import { TabsManager } from './tabs'
 import '/node_modules/jquery.maskedinput/src/jquery.maskedinput.js'
 
+
+
 $.validator.addMethod("phoneNumber", function(value, element) {
     if (element.value.replace(/[^\d]/g, '').length == 11) 
         return true;
@@ -62,7 +64,7 @@ function init() {
     });
 
 // FORM
-
+// VALIDATION
     
     const form = document.getElementById('form');
     
@@ -109,8 +111,19 @@ function init() {
     Fancybox.bind("[data-fancybox]");
 
 
-// VALIDATION
-    
+
+    // ApiService.getServices().then(initializeServiceList);
+
+    // function submitHandler() {
+    //     try{
+    //         await ApiService.createOrder()
+    //     } catch() {
+
+    //     } finally {
+    //         hideLoader();
+    //     }
+        
+    // }
 
 
 };
@@ -161,4 +174,6 @@ if (menuLinks.length > 0) {
             e.preventDefault();
         }
     }
+
+    
 }

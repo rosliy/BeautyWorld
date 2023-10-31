@@ -83,6 +83,10 @@
 
 	padding: 40px;
 
+	@include tablet {
+		padding: 10px;
+	}
+
 	&__title {
 		font-size: 1.285em;
 		font-weight: 600;
