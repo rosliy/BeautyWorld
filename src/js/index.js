@@ -177,3 +177,32 @@ if (menuLinks.length > 0) {
 
     
 }
+
+// POPUP
+
+const popupLinks = document.querySelectorAll('.popup-link');
+const popup = document.querySelector('.popup')
+const popupOverlay = document.querySelector('.popup__overlay');
+const closePopup = document.querySelector('.popup__close');
+
+if (popupLinks.length > 0) {
+    for (let index = 0; index < popupLinks.length; index++) {
+        const popupLink = popupLinks[index];
+        popupLink.addEventListener('click', (e) => {
+            popup.classList.add('open');
+            e.preventDefault();
+        })
+    }
+}
+
+popupOverlay.addEventListener('click', (e) => {
+
+	if (e.target == popupOverlay) {
+		popup.classList.remove('open');
+	}
+});
+
+closePopup.addEventListener('click', (e) => {
+    popup.classList.remove('open');
+})
+

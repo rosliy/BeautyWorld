@@ -1,6 +1,21 @@
-.modal {
-	display: none;
-	overflow: auto;
+.popup {
+	opacity: 0;
+	visibility: hidden;
+
+	position: relative;
+
+	&__close {
+		font-size: 14px;
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 20px;
+
+		&:hover {
+			font-weight: 700;
+			cursor: pointer;
+		}
+	}
 
 	&__overlay {
 		position: fixed;
@@ -22,9 +37,10 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		margin: 10px;
 
-		width: calc(70% + 10px);
-		height: calc(70% + 10px);
+		width: auto;
+		height: auto;
 		overflow: hidden;
 		background-color: white;
 		border-radius: 20px;
@@ -35,11 +51,6 @@
 		box-shadow: 0 0 20px #211d1d inset 0 0 1px black;
 
 		position: relative;
-
-		@include mobile {
-			width: 100vw;
-			height: 100vh;
-		}
 
 		&::before {
 			animation-delay: -1s !important;
@@ -62,14 +73,10 @@
 		}
 	}
 	&__wrapper {
-		position: absolute;
-		top: 5px;
-		left: 5px;
-		width: calc(100% - 10px);
-		height: calc(100% - 10px);
-		z-index: 51;
-		border-radius: 20px;
 		background-color: white;
+		z-index: 51;
+		margin: 3px;
+		border-radius: 20px;
 	}
 
 	&__form {
@@ -141,6 +148,11 @@
 		@include tablet {
 			flex-wrap: wrap;
 		}
+	}
+
+	&.open {
+		opacity: 1;
+		visibility: visible;
 	}
 }
 
