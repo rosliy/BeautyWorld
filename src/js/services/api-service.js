@@ -1,13 +1,13 @@
 import { HttpService } from './http-service'
 
-const API_PATH = 'http://localhost:3001/api';
+
 
 class ApiService extends HttpService {
     constructor() {
         super(API_PATH);
     }
 
-    gerServices() {
+    getServices() {
         return this.get('services');
     }
 

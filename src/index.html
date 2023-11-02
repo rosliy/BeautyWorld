@@ -840,12 +840,12 @@
 
                             </div>
                         </div>
-                        <form id="form" class="contacts__form form">
+                        <form id="formFast" class="contacts__form form">
                             <h3 class="form__title">Быстрая запись</h3>
                             <p class="form__subtitle">Наш менеджер перезвонит в течение нескольких минут, уточнит
                                 подробности и согласует время.</p>
-                            <input name="name" type="text" class="form__name" placeholder="Ваше имя" required>
-                            <input name="number" class="form__phone" placeholder="+7 (___) ___-__-__" required>
+                            <input name="nameFast" type="text" class="form__name" placeholder="Ваше имя" required>
+                            <input name="numberFast" class="form__phone" placeholder="+7 (___) ___-__-__" required>
                             <button class="form__btn btn">Записаться</button>
                             <p class="form__comment">Нажимая на кнопку вы соглашаетесь с <span>обработкой персональных
                                     данных</span></p>
@@ -868,7 +868,7 @@
                                 <label for="number">Введите номер телефона</label>
                                 <input name="number" class="form__phone" placeholder="+7 (___) ___-__-__" required>
                                 <label for="master">Выберите мастера</label>
-                                <select name="master" id="">
+                                <select name="master" id="" class="form__master">
                                     <option value="Любой мастер">Любой мастер</option>
                                     <option value="Мастер 1">Мастер 1</option>
                                     <option value="Мастер 2">Мастер 2</option>
@@ -876,7 +876,7 @@
                                     <option value="Мастер 4">Мастер 4</option>
                                 </select>
                                 <label for="service">Выберите услугу</label>
-                                <select name="service" id="">
+                                <select name="service" id="" class="form__service">
                                     <option value="Услуга 1">Услуга 1</option>
                                     <option value="Услуга 2">Услуга 2</option>
                                     <option value="Услуга 3">Услуга 3</option>
@@ -885,7 +885,7 @@
                                 <label for="date">Дата визита</label>
                                 <div class="popup__time">
                                     <input type="date" name="date" value="2023-10-31" min="2023-10-30" max="2023-12-31">
-                                    <input type="time" list="worksHours">
+                                    <input type="time" list="worksHours" name="time">
                                     <datalist id="worksHours">
                                         <option value="12:00"></option>
                                         <option value="13:00"></option>
