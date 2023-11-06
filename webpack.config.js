@@ -1,5 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin');
-
+var webpack = require('webpack');
 const isProduction = process.env.NODE_ENV == 'production';
 
 module.exports = {
@@ -12,7 +12,8 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader'
             }
-        ]
+        ],
+        
     },
     optimization: {
         minimize: isProduction,
@@ -20,4 +21,15 @@ module.exports = {
             extractComments: false,
         })],
     },
+    // externals: {
+    //     $: 'jquery',
+    //     jQuery: 'jquery',
+    //     'window.jQuery': 'jquery'
+    // },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: "jquery/dist/jquery.min.js",
+            jQuery: "jquery/dist/jquery.min.js",
+            "window.jQuery": "jquery/dist/jquery.min.js"
+        }),]
 }
