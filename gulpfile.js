@@ -6,6 +6,8 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const sourcemaps = require('gulp-sourcemaps');
+const webpackStream = require('webpack-stream');
+const rename = require('gulp-rename');
 
 // Таск компиляции SASS в CSS
 function buildSass() {
@@ -35,6 +37,17 @@ function buildHtml() {
         .pipe(browserSync.stream());
 }
 
+// Таск работы с JS файлами
+
+function buildJS() {
+    return src('src/js/index.js')
+    .pipe(webpackStream(require('./webpack.config')))
+    .pipe(rename('main.min.js'))
+    .pipe(dest('src/js'))
+    .pipe(dest('dist/js'))
+    .pipe(browserSync.stream());
+}
+
 // Таск копирования статичных файлов
 function copy() {
     return src(['src/images/**/*.*'], { base: 'src' }).pipe(dest('dist'));
@@ -48,6 +61,7 @@ function cleanDist() {
 
 // Таск отслеживания изменения файлов
 function serve() {
+    watch(['src/js/**/*.js', '!src/js/**/*.min.js'], buildJS);
     watch('src/scss/**/*.scss', buildSass);
     watch('src/**/*.html', buildHtml);
 }
@@ -56,8 +70,8 @@ function serve() {
 // Создание дев-сервера
 function createDevServer() {
     browserSync.init({
-        server: 'src',
-        notify: false
+        server: 'src/',
+        notify: false,
     })
 }
 
@@ -67,5 +81,5 @@ exports.html = buildHtml;
 exports.images = copy;
 exports.cleanDist = cleanDist;
 
-exports.build = series(cleanDist, buildSass, buildHtml, copy);
-exports.default = series(buildSass, parallel(createDevServer, serve));
+exports.build = series(cleanDist, parallel(buildSass, buildHtml, copy, buildJS));
+exports.default = series([buildSass, buildJS], parallel(createDevServer, serve));

@@ -24,6 +24,9 @@ body {
 	height: 100%;
 	box-sizing: border-box;
 }
+body._lock {
+	overflow: hidden;
+}
 
 a {
 	color: $fc;
@@ -69,8 +72,9 @@ section {
 	padding: 0 15px;
 
 	&_works {
-		max-width: 1440px;
-		padding: 0;
+		max-width: 1480px;
+		padding: 0 0px;
+		overflow: visible !important;
 	}
 }
 
@@ -102,4 +106,8 @@ section {
 	@include tablet {
 		text-align: center;
 	}
+}
+
+.fancybox-slide--iframe .fancybox-content {
+	max-width: 600px;
 }
