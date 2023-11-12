@@ -36,19 +36,19 @@ export class TabsManager {
         const links = tabsElem.querySelectorAll('.prices__categories li'); 
         const contents = tabsElem.querySelectorAll('.prices__items'); 
         for (let i = 0; i < links.length; i++) { 
-        const tab = new TabItem(links[i], contents[i]); 
-        this.tabs.push(tab); 
+            const tab = new TabItem(links[i], contents[i]); 
+            this.tabs.push(tab); 
 
-        tab.onClick(() => this.activateTab(tab));   
+            tab.onClick(() => this.activateTab(tab));   
+        } 
     } 
-} 
 
     activateTab(tab) { 
-    if (this.activeTab) { 
-        this.activeTab.deactivate(); 
-    } 
-    this.activeTab = tab; 
-    this.activeTab.activate(); 
+        if (this.activeTab) { 
+            this.activeTab.deactivate(); 
+        } 
+        this.activeTab = tab; 
+        this.activeTab.activate(); 
     } 
 } 
 
