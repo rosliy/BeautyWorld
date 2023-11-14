@@ -31,15 +31,12 @@
 	}
 
 	&__card {
+		cursor: pointer;
 		display: flex;
 		flex-direction: column;
 		gap: 20px 0;
 
 		transition: opacity 0.2s linear;
-
-		:hover &__signup {
-			opacity: 1;
-		}
 	}
 
 	&__label {

@@ -62,7 +62,7 @@
 
                         <p class="header__desc">Идеальный образ за 60 минут</p>
 
-                        <button class="btn header__btn">Записаться онлайн</button>
+                        <button class="btn header__btn popup-link">Записаться онлайн</button>
                     </div>
 
                     <div class="header__image">
@@ -195,7 +195,7 @@
                             <p class="card__desc">
                                 Аппаратный, комбинированный или классический.
                             </p>
-                            <button class="btn services__btn">Записаться</button>
+                            <button class="btn services__btn popup-link">Записаться</button>
                         </div>
 
                         <div class="services__card card">
@@ -205,7 +205,7 @@
                                 Гель-лак наносится в несколько слоев с использование базы и топа. Каждый слой
                                 полимеризуется в LED-лампе.
                             </p>
-                            <button class="btn services__btn">Записаться</button>
+                            <button class="btn services__btn popup-link">Записаться</button>
                         </div>
 
                         <div class="services__card card">
@@ -214,7 +214,7 @@
                             <p class="card__desc">
                                 Выполняется в одноразовых перчатках наполненных увлажняющим лосьоном.
                             </p>
-                            <button class="btn services__btn">Записаться</button>
+                            <button class="btn services__btn popup-link">Записаться</button>
                         </div>
 
                         <div class="services__card card">
@@ -223,7 +223,7 @@
                             <p class="card__desc">
                                 Аппаратный, комбинированный или классический.
                             </p>
-                            <button class="btn services__btn">Записаться</button>
+                            <button class="btn services__btn popup-link">Записаться</button>
                         </div>
 
                         <div class="services__card card">
@@ -233,7 +233,7 @@
                                 Благодаря этой процедуре увлажнение кожи увеличивается на 80%, также выводит токсины и
                                 укрепляет суставы.
                             </p>
-                            <button class="btn services__btn">Записаться</button>
+                            <button class="btn services__btn popup-link">Записаться</button>
                         </div>
                     </div>
                 </div>
@@ -614,22 +614,19 @@
                     <p class="masters__subtitle">Дружная команда настоящих профессионалов</p>
                     <div class="masters__cards">
 
-                        <div class="masters__card">
-
+                        <div class="masters__card popup-link">
                             <div class="masters__label">
                                 <img class="masters__img" src="./images/masters/masters_1.jpeg" alt="">
                                 <div class="masters__signup">Записаться <br> к мастеру</div>
                             </div>
-
                             <div class="masters__desc">
                                 <h3 class="masters__name">Краснова Ирина</h3>
                                 <p>Мастер ногтевого сервиса</p>
                             </div>
-
                             <p class="masters__experience">опыт работы 5 лет</p>
                         </div>
 
-                        <div class="masters__card">
+                        <div class="masters__card popup-link">
                             <div class="masters__label">
                                 <img class="masters__img" src="./images/masters/masters_2.jpeg" alt="">
                                 <div class="masters__signup">Записаться <br> к мастеру</div>
@@ -640,7 +637,8 @@
                             </div>
                             <p class="masters__experience">опыт работы 5 лет</p>
                         </div>
-                        <div class="masters__card">
+
+                        <div class="masters__card popup-link">
                             <div class="masters__label">
                                 <img class="masters__img" src="./images/masters/masters_3.jpeg" alt="">
                                 <div class="masters__signup">Записаться <br> к мастеру</div>
@@ -651,7 +649,8 @@
                             </div>
                             <p class="masters__experience">опыт работы 5 лет</p>
                         </div>
-                        <div class="masters__card">
+
+                        <div class="masters__card popup-link">
                             <div class="masters__label">
                                 <img class="masters__img" src="./images/masters/masters_4.jpeg" alt="">
                                 <div class="masters__signup">Записаться <br> к мастеру</div>
@@ -841,12 +840,12 @@
 
                             </div>
                         </div>
-                        <form id="form" class="contacts__form form">
+                        <form id="formFast" class="contacts__form form">
                             <h3 class="form__title">Быстрая запись</h3>
                             <p class="form__subtitle">Наш менеджер перезвонит в течение нескольких минут, уточнит
                                 подробности и согласует время.</p>
-                            <input name="name" type="text" class="form__name" placeholder="Ваше имя">
-                            <input name="phone" class="form__phone" placeholder="+7 (___) ___-__-__">
+                            <input name="nameFast" type="text" class="form__name" placeholder="Ваше имя" required>
+                            <input name="numberFast" class="form__phone" placeholder="+7 (___) ___-__-__" required>
                             <button class="form__btn btn">Записаться</button>
                             <p class="form__comment">Нажимая на кнопку вы соглашаетесь с <span>обработкой персональных
                                     данных</span></p>
@@ -855,6 +854,61 @@
                 </div>
             </section>
 
+            <div class="popup">
+                <div class="popup__overlay">
+                    <div class="popup__window">
+                        <div class="popup__wrapper">
+                            <span class="popup__close">X</span>
+                            <form id="form" class="popup__form form">
+                                <h3 class="form__title">Быстрая запись</h3>
+                                <p class="form__subtitle">Наш менеджер перезвонит в течение нескольких минут, уточнит
+                                    подробности и согласует время.</p>
+                                <label for="name">Введите своё имя</label>
+                                <input name="name" type="text" class="form__name" placeholder="Ваше имя" required>
+                                <label for="number">Введите номер телефона</label>
+                                <input name="number" class="form__phone" placeholder="+7 (___) ___-__-__" required>
+                                <label for="master">Выберите мастера</label>
+                                <select name="master" id="" class="form__master">
+                                    <option value="Любой мастер">Любой мастер</option>
+                                    <option value="Мастер 1">Мастер 1</option>
+                                    <option value="Мастер 2">Мастер 2</option>
+                                    <option value="Мастер 3">Мастер 3</option>
+                                    <option value="Мастер 4">Мастер 4</option>
+                                </select>
+                                <label for="service">Выберите услугу</label>
+                                <select name="service" id="" class="form__service">
+                                    <option value="Услуга 1">Услуга 1</option>
+                                    <option value="Услуга 2">Услуга 2</option>
+                                    <option value="Услуга 3">Услуга 3</option>
+                                    <option value="Услуга 4">Услуга 4</option>
+                                </select>
+                                <label for="date">Дата визита</label>
+                                <div class="popup__time">
+                                    <input type="date" name="date" value="2023-10-31" min="2023-10-30" max="2023-12-31">
+                                    <input type="time" list="worksHours" name="time">
+                                    <datalist id="worksHours">
+                                        <option value="12:00"></option>
+                                        <option value="13:00"></option>
+                                        <option value="14:00"></option>
+                                        <option value="15:00"></option>
+                                        <option value="16:00"></option>
+                                        <option value="17:00"></option>
+                                        <option value="18:00"></option>
+                                        <option value="19:00"></option>
+                                        <option value="20:00"></option>
+                                    </datalist>
+                                    <button class="form__btn btn">Записаться</button>
+                                </div>
+
+                                <p class="form__comment">Нажимая на кнопку вы соглашаетесь с <span>обработкой
+                                        персональных
+                                        данных</span></p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
 
         </main>

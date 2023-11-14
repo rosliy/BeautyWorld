@@ -2,3 +2,5 @@ node_modules
 src/css
 dist
 src/js/main.min.js
+server/node_modules
+crm-beauty/node_modules
