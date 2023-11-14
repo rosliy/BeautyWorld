@@ -21,6 +21,12 @@ module.exports = {
             extractComments: false,
         })],
     },
+
+    resolve: {
+        alias: {'@mui/styled-engine': '@mui/styled-engine-sc'},
+    },
+
+
     // externals: {
     //     $: 'jquery',
     //     jQuery: 'jquery',

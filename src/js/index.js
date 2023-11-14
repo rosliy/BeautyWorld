@@ -182,6 +182,63 @@ if (menuLinks.length > 0) {
     
 }
 
+var status = function (response) {
+    if (response.status !== 200) {
+        return Promise.reject(new Error(response.statusText))
+    }
+    return Promise.resolve(response)
+}
+var json = function (response) {
+    return response.json()
+}
+// let user = {
+//     name: "Сергей",
+//     phone: "2346346357457",
+//     masterId: 3,
+//     serviceId: 2,
+//     visitDate: "14.11.2023"
+// };
+
+// let response = await fetch('http://localhost:3001/api/orders', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json;charset=utf-8'
+//     },
+//     body: JSON.stringify(user)
+// });
+
+// let result = await response.json();
+// console.log(result)
+
+fetch('http://localhost:3001/api/services')
+    .then(function (response) {	
+        return response.json();
+    }).then(function (response) {
+        document.querySelector('.form__service').innerHTML=response; 
+        console.log(response[0].name)
+        for (let i=0; i<response.length; i++) {
+            console.log(response[i])
+            let  fragment = document.createDocumentFragment();
+            for (let option in response[i]){
+                
+                let optionElem = new Option(option, option.name);
+                fragment.appendChild(optionElem);
+        }
+        document.querySelector('.form__service').appendChild(fragment);
+        }
+        // let  fragment = document.createDocumentFragment();
+        // for (let option in response){
+        //     let optionElem = new Option(option, response[option]);
+        //     fragment.appendChild(optionElem);
+        // }
+        // document.querySelector('.form__service').appendChild(fragment);
+
+        return;
+    }).catch(function (error) {
+        console.log(error);	
+    });
+
+
 // POPUP
 
 const popupLinks = document.querySelectorAll('.popup-link');
@@ -246,16 +303,23 @@ $(function(){
         submitHandler: function (form) {
             const formData = {
                 name: form.name.value,
-                number: form.number.value,
-                master: selectMaster.value,
-                service: selectService.value,
-                date: form.date.value,
-                time: form.time.value
+                phoneNumber: form.number.value,
+                masterId: selectMaster.value,
+                serviceId: selectService.value,
+                visitDate: `${form.date.value}T${form.time.value}`,
             };
             console.log(formData);
+            fetch('http://localhost:3001/api/orders', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=utf-8'
+                },
+                body: JSON.stringify(formData)})
             alert("Ваша заявка отправлена! В ближайшее время с вами свяжется менеджер.")
             setTimeout(() => {popup.classList.remove('open');}, 3000);
         }
     })
+
+
 });
 
